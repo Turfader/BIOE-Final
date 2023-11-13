@@ -4,12 +4,12 @@
 </div>
 
 <!-- ABOUT THE PROJECT -->
-## About The Project
+### About The Project
 
 This project is a simple recreation of ms paint in PyGame
 <!-- GETTING STARTED -->
 
-## Getting Started
+### Getting Started
 
 Run main.py and draw to your heart's content
 
