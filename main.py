@@ -1,7 +1,7 @@
 import package_installer
 import pygame
 from pygame import gfxdraw
-print('hello world')
+
 
 def put_text(txt, x, y):
 
