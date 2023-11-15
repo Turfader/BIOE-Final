@@ -8,7 +8,7 @@ def put_text(txt, x, y):
 
     font = pygame.font.SysFont('Calibri', 25, True, False)
     text = font.render(txt, True, [0, 0, 0])
-    screen.blit(text, [x, y])  # shows an error. This should will not be an error at runtime
+    screen.blit(text, [x, y])  # shows an error. This should not be an error at runtime
 
 
 def put_pixel(color, x, y, screen):
