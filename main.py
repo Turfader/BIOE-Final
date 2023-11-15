@@ -4,18 +4,18 @@ from pygame import gfxdraw
 from numpy import zeros
 
 
-def put_text(txt, x, y):
+def put_text(txt: str, x: int, y: int) -> None:
 
     font = pygame.font.SysFont('Calibri', 25, True, False)
     text = font.render(txt, True, [0, 0, 0])
     screen.blit(text, [x, y])  # shows an error. This should not be an error at runtime
 
 
-def put_pixel(color, x, y, screen):
+def put_pixel(color, x, y, screen) -> None:
     gfxdraw.pixel(screen, x, y, color)
 
 
-def paint():  # Keep this the last function above main
+def paint() -> None:  # Keep this the last function above main
     # gamestate  variables here
     done: bool = False
 
