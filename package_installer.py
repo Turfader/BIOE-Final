@@ -5,13 +5,13 @@ from subprocess import run
 from time import time
 
 # Create a new virtual environment, given that there isn't one already.
-venv_folder = path.join(getcwd(), "subprocess_venv")
+venv_folder = path.join(getcwd(), "venv")
 if not path.exists(venv_folder):
 
     start = time()
 
     print("Creating virtual environment")
-    venv.create("subprocess_venv", with_pip=True)
+    venv.create("venv", with_pip=True)
 
     print("Installing dependencies...")
 
