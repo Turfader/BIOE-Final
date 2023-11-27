@@ -27,6 +27,9 @@ def paint() -> None:  # Keep this the last function above main
     pygame.display.set_caption("PyPaint")
     clock = pygame.time.Clock()
 
+    # paints the screen white at the start
+    screen.fill([255, 255, 255])
+
     while not done:
 
         for event in pygame.event.get():
