@@ -68,21 +68,7 @@ def paint() -> None:  # Keep this the last function above main
 
             if mouse_down:
                 x, y = pygame.mouse.get_pos()
-                color = (random.randrange(256), random.randrange(
-                    256), random.randrange(256))
-                # Draw a single circle wheneven mouse is clicked down.
-                pygame.draw.circle(screen, color, e.pos, radius)
-                draw_on = True
-                # When mouse button released it will stop drawing
-            if event.type == pygame.MOUSEBUTTONUP:
-                draw_on = False
-                # It will draw a continuous circle with the help of roundline function.
-            if e.type == pygame.MOUSEMOTION:
-                if draw_on:
-                    pygame.draw.circle(screen, color, e.pos, radius)
-                    roundline(screen, color, e.pos, last_pos, radius)
-                last_pos = e.pos
-            pygame.display.flip()
+
                 # TODO add code that records the mouse position and color into the array
 
             # TODO add code to update the screen with what has been drawn
