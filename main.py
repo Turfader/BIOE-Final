@@ -17,7 +17,7 @@ def put_pixel(color, x, y, screen) -> None:
 def paint() -> None:  # Keep this the last function above main
     # gamestate variables here
     done: bool = False
-    pixel_locations: list = []  # You should append tuples of (x_pos, y_pos, (r, g, b))
+    pixel_locations: set  # You should append tuples of (x_pos, y_pos, (r, g, b))
     mouse_down: bool = False
 
     # pygame init stuff here
@@ -40,7 +40,7 @@ def paint() -> None:  # Keep this the last function above main
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_c:
                     screen.fill([255, 255, 255])  # when c is pressed, fill the screen with white
-                    pixel_locations = []  # clear existing pixel locations
+                    pixel_locations = {}  # clear existing pixel locations
 
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 mouse_presses = pygame.mouse.get_pressed()
@@ -68,6 +68,21 @@ def paint() -> None:  # Keep this the last function above main
 
             if mouse_down:
                 x, y = pygame.mouse.get_pos()
+                color = (random.randrange(256), random.randrange(
+                    256), random.randrange(256))
+                # Draw a single circle wheneven mouse is clicked down.
+                pygame.draw.circle(screen, color, e.pos, radius)
+                draw_on = True
+                # When mouse button released it will stop drawing
+            if event.type == pygame.MOUSEBUTTONUP:
+                draw_on = False
+                # It will draw a continuous circle with the help of roundline function.
+            if e.type == pygame.MOUSEMOTION:
+                if draw_on:
+                    pygame.draw.circle(screen, color, e.pos, radius)
+                    roundline(screen, color, e.pos, last_pos, radius)
+                last_pos = e.pos
+            pygame.display.flip()
                 # TODO add code that records the mouse position and color into the array
 
             # TODO add code to update the screen with what has been drawn
