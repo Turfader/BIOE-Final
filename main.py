@@ -18,11 +18,11 @@ def put_pixel(color, x, y, screen) -> None:
 def paint() -> None:  # Keep this the last function above main
     # gamestate  variables here
     done: bool = False
+    pixel_locations: list = []  # You should append tuples of (x_pos, y_pos, (r, g, b))
 
     # pygame init stuff here
     pygame.init()
     size = (400, 400)
-    board = zeros(size)  # board[x][y]
     screen = pygame.display.set_mode(size)
     pygame.display.set_caption("PyPaint")
     clock = pygame.time.Clock()
@@ -31,11 +31,13 @@ def paint() -> None:  # Keep this the last function above main
 
         for event in pygame.event.get():
 
-            # clears the screen with white
-            screen.fill([255, 255, 255])
-
             if event.type == pygame.QUIT:
                 done = True
+
+            elif event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_c:
+                    screen.fill([255, 255, 255])  # when c is pressed, fill the screen with white
+                    pixel_locations = []  # clear existing pixel locations
 
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 mouse_presses = pygame.mouse.get_pressed()
