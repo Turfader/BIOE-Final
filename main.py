@@ -2,7 +2,7 @@ import package_installer
 import pygame
 from pygame import gfxdraw
 
-print('hello world')
+
 def put_text(txt: str, x: int, y: int) -> None:
 
     font = pygame.font.SysFont('Calibri', 25, True, False)
