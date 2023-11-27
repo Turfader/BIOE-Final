@@ -1,7 +1,6 @@
 import package_installer
 import pygame
 from pygame import gfxdraw
-from numpy import zeros
 
 
 def put_text(txt: str, x: int, y: int) -> None:
@@ -16,7 +15,7 @@ def put_pixel(color, x, y, screen) -> None:
 
 
 def paint() -> None:  # Keep this the last function above main
-    # gamestate  variables here
+    # gamestate variables here
     done: bool = False
     pixel_locations: list = []  # You should append tuples of (x_pos, y_pos, (r, g, b))
     mouse_down: bool = False
@@ -69,6 +68,8 @@ def paint() -> None:  # Keep this the last function above main
                 # TODO add code that records the mouse position and color into the array
 
             # TODO add code to update the screen with what has been drawn
+            # I would advise iterating over a for loop and calling the put_pixel function
+            # you should be able to do this in one line. Give it a try if you can!
             # i.e. function that draws stuff according to the array
             pygame.display.flip()
             clock.tick(30)  # limits frames to 30 fps
@@ -79,4 +80,3 @@ if __name__ == "__main__":
     paint()
     print("exiting")
     quit(0)
-
