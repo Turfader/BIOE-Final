@@ -19,6 +19,7 @@ def paint() -> None:  # Keep this the last function above main
     # gamestate  variables here
     done: bool = False
     pixel_locations: list = []  # You should append tuples of (x_pos, y_pos, (r, g, b))
+    mouse_down: bool = False
 
     # pygame init stuff here
     pygame.init()
@@ -43,7 +44,7 @@ def paint() -> None:  # Keep this the last function above main
                 mouse_presses = pygame.mouse.get_pressed()
                 if mouse_presses[0]:
                     # print("Left Mouse button was clicked")
-                    pass
+                    mouse_down = True
                 if mouse_presses[1]:
                     # print("middle scroll wheel was pressed down")
                     pass
@@ -55,7 +56,7 @@ def paint() -> None:  # Keep this the last function above main
                 mouse_presses = pygame.mouse.get_pressed()
                 if mouse_presses[0]:
                     # print("Left Mouse button was released")
-                    pass
+                    mouse_down = False
                 if mouse_presses[1]:
                     # print("middle scroll wheel was released")
                     pass
@@ -63,7 +64,11 @@ def paint() -> None:  # Keep this the last function above main
                     # print("Right Mouse button was released"")
                     pass
 
-            # add code to update screen here
+            if mouse_down:
+                x, y = pygame.mouse.get_pos()
+                # TODO add code that records the mouse position and color into the array
+
+            # TODO add code to update the screen with what has been drawn
             # i.e. function that draws stuff according to the array
             pygame.display.flip()
             clock.tick(30)  # limits frames to 30 fps
