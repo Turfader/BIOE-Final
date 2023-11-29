@@ -16,7 +16,7 @@ if not path.exists(venv_folder):
     print("Installing dependencies...")
 
     # Add pip installation names here for any new package.
-    packages = ["ntplib", "pygame"]
+    packages = ["ntplib", "pygame", "Pillow"]
     for package in packages:
         run([sys.executable, "-m", "pip", "install", package], check=True)
         print(f"Installed package: {package}")

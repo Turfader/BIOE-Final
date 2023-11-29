@@ -3,7 +3,6 @@ import pygame
 from pygame import gfxdraw
 
 
-
 def put_text(txt: str, x: int, y: int) -> None:
 
     font = pygame.font.SysFont('Calibri', 25, True, False)
