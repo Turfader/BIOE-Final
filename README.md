@@ -7,12 +7,18 @@
 ### About The Project
 
 This project is a simple recreation of ms paint in PyGame
-<!-- GETTING STARTED -->
 
+<!-- GETTING STARTED -->
 ### Getting Started
 
 Run main.py and draw to your heart's content
 
+<!-- PREREQUISITES -->
 ### Prerequisites
 
 This application was designed for Python 3.11+
+
+<!-- KEYBINDS -->
+### Keybinds
+C -- Clear screen
+L_Shift + S -- Screenshot
