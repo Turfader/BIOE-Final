@@ -20,5 +20,5 @@ This application was designed for Python 3.11+
 
 <!-- KEYBINDS -->
 ### Keybinds
-C -- Clear screen
+C -- Clear screen <br>
 L_Shift + S -- Screenshot
