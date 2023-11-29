@@ -3,6 +3,7 @@ import pygame
 from pygame import gfxdraw
 
 
+
 def put_text(txt: str, x: int, y: int) -> None:
 
     font = pygame.font.SysFont('Calibri', 25, True, False)
@@ -69,6 +70,45 @@ def paint() -> None:  # Keep this the last function above main
             if mouse_down:
                 x, y = pygame.mouse.get_pos()
 
+                draw_on = False
+                last_pos = (0, 0)
+
+                radius = 5
+
+                def roundline(canvas, color, start, end, radius=1):
+                    Xaxis = end[0] - start[0]
+                    Yaxis = end[1] - start[1]
+                    dist = max(abs(Xaxis), abs(Yaxis))
+                    for i in range(dist):
+                        x = int(start[0] + float(i) / dist * Xaxis)
+                        y = int(start[1] + float(i) / dist * Yaxis)
+                        pygame.draw.circle(canvas, color, (x, y), radius)
+
+                try:
+                    while True:
+                        e = pygame.event.wait()
+
+                        if e.type == pygame.QUIT:
+                            raise StopIteration
+
+                        if e.type == pygame.MOUSEBUTTONDOWN:
+
+                            color = ([0,0,0])
+
+                            pygame.draw.circle(screen, color, e.pos, radius)
+                            draw_on = True
+
+                        if e.type == pygame.MOUSEBUTTONUP:
+                            draw_on = False
+                        if e.type == pygame.MOUSEMOTION:
+                            if draw_on:
+                                pygame.draw.circle(screen, color, e.pos, radius)
+                                roundline(screen, color, e.pos, last_pos, radius)
+                            last_pos = e.pos
+                        pygame.display.flip()
+
+                except StopIteration:
+                    pass
                 # TODO add code that records the mouse position and color into the array
 
             # TODO add code to update the screen with what has been drawn
