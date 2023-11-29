@@ -15,6 +15,12 @@ def put_pixel(color, x, y, screen) -> None:
     gfxdraw.pixel(screen, x, y, color)
 
 
+def save_image() -> None:
+    # TODO add code to save image here. Use the python image library (PIL) through Pillow.
+    #  @ me if you have more questions
+    pass
+
+
 def paint() -> None:  # Keep this the last function above main
     # gamestate variables here
     done: bool = False
