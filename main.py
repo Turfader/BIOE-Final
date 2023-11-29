@@ -14,12 +14,6 @@ def put_pixel(color, x, y, screen) -> None:
     gfxdraw.pixel(screen, x, y, color)
 
 
-def save_image() -> None:
-    # TODO add code to save image here. Use the python image library (PIL) through Pillow.
-    #  @ me if you have more questions
-    pass
-
-
 def paint() -> None:  # Keep this the last function above main
     # gamestate variables here
     done: bool = False
@@ -47,6 +41,8 @@ def paint() -> None:  # Keep this the last function above main
                 if event.key == pygame.K_c:
                     screen.fill([255, 255, 255])  # when c is pressed, fill the screen with white
                     pixel_locations = set()  # clear existing pixel locations
+                if event.key == pygame.K_c and pygame.K_LSHIFT:
+                    pygame.image.save(screen, "./screenshot.png")
 
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 mouse_presses = pygame.mouse.get_pressed()
