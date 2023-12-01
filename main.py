@@ -75,7 +75,9 @@ def paint() -> None:  # Keep this the last function above main
                 last_pos = (0, 0)
 
                 radius = 5
-
+                # todo: refactor the below code to follow existing conventions
+                # make sure that it saves each location to the set pixel_locations and then
+                # draws them at the location dictated by the todo
                 def roundline(canvas, color, start, end, radius=1):
                     Xaxis = end[0] - start[0]
                     Yaxis = end[1] - start[1]
