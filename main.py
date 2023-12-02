@@ -89,16 +89,7 @@ def paint() -> None:  # Keep this the last function above main
                     pass
 
             elif event.type == pygame.MOUSEBUTTONUP:
-                mouse_presses = pygame.mouse.get_pressed()
-                if mouse_presses[0]:
-                    # print("Left Mouse button was released")
-                    mouse_down = False
-                if mouse_presses[1]:
-                    # print("middle scroll wheel was released")
-                    pass
-                if mouse_presses[2]:
-                    # print("Right Mouse button was released"")
-                    pass
+                mouse_down = False
 
             if mouse_down:
                 x, y = pygame.mouse.get_pos()
