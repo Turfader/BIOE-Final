@@ -10,8 +10,10 @@ def put_pixel(color, x, y, screen) -> None:
 def paint() -> None:  # Keep this the last function above main
     # gamestate variables here
     done: bool = False
-    pixel_locations: set = set()  # You should append tuples of (x_pos, y_pos, (r, g, b))
+    pixel_locations: set = set()  # You should append tuples of (x_pos, y_pos, (r, g, b), radius)
     mouse_down: bool = False
+    radius: int = 0  # set default to one pixel
+    color: tuple[int, int, int] = (0, 0, 0)  # set default to black
 
     # pygame init stuff here
     pygame.init()
@@ -31,11 +33,48 @@ def paint() -> None:  # Keep this the last function above main
                 done = True
 
             elif event.type == pygame.KEYDOWN:
+                # screen clear
                 if event.key == pygame.K_c:
                     screen.fill([255, 255, 255])  # when c is pressed, fill the screen with white
                     pixel_locations = set()  # clear existing pixel locations
-                if event.key == pygame.K_c and pygame.K_LSHIFT:
+
+                # screenshot
+                if event.key == pygame.K_s and pygame.K_LSHIFT:
                     pygame.image.save(screen, "./screenshot.png")
+
+                # color
+                if event.key == pygame.K_r:
+                    color = (255, 0, 0)  # sets color to red
+                if event.key == pygame.K_g:
+                    color = (0, 255, 0)  # sets color to green
+                if event.key == pygame.K_u:  # uses u for blue and b for black
+                    color = (0, 0, 255)  # sets color to blue
+                if event.key == pygame.K_b:
+                    color = (0, 0, 0)  # sets color to black
+                if event.key == pygame.K_w:
+                    color = (255, 255, 255)  # sets color to white
+
+                # size
+                if event.key == pygame.K_1:
+                    radius = 1
+                if event.key == pygame.K_2:
+                    radius = 2
+                if event.key == pygame.K_3:
+                    radius = 3
+                if event.key == pygame.K_4:
+                    radius = 4
+                if event.key == pygame.K_5:
+                    radius = 5
+                if event.key == pygame.K_6:
+                    radius = 6
+                if event.key == pygame.K_7:
+                    radius = 7
+                if event.key == pygame.K_8:
+                    radius = 8
+                if event.key == pygame.K_9:
+                    radius = 9
+                if event.key == pygame.K_0:
+                    radius = 0
 
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 mouse_presses = pygame.mouse.get_pressed()
@@ -63,14 +102,10 @@ def paint() -> None:  # Keep this the last function above main
 
             if mouse_down:
                 x, y = pygame.mouse.get_pos()
+                # TODO add code to add to pixel locations as shown in discord
 
-                draw_on = False
-                last_pos = (0, 0)
 
-                radius = 5
-                # todo: refactor the below code to follow existing conventions
-                # make sure that it saves each location to the set pixel_locations and then
-                # draws them at the location dictated by the todo
+                # TODO remove this code as shown in discord (until line 142)
                 def line(canvas, color, start, end, radius=1):
                     Xaxis = end[0] - start[0]
                     Yaxis = end[1] - start[1]
@@ -105,12 +140,15 @@ def paint() -> None:  # Keep this the last function above main
 
                 except StopIteration:
                     pass
-                # TODO add code that records the mouse position and color into the array
 
-            # TODO add code to update the screen with what has been drawn
-            # I would advise iterating over a for loop and calling the put_pixel function
-            # you should be able to do this in one line. Give it a try if you can!
-            # i.e. function that draws stuff according to the array
+            # TODO add code as shown in the discord
+            for location in pixel_locations:
+                if location[3] == 0:
+                    # add gfxdraw code here. Remover the pass
+                    pass
+                else:
+                    # add pygame.draw.circle code here. Remove the pass
+                    pass
             pygame.display.flip()
             clock.tick(30)  # limits frames to 30 fps
     pygame.quit()
