@@ -89,25 +89,25 @@ def paint() -> None:  # Keep this the last function above main
 
                 try:
                     while True:
-                        e = pygame.event.wait()
+                        event = pygame.event.wait()
 
-                        if e.type == pygame.QUIT:
+                        if event.type == pygame.QUIT:
                             raise StopIteration
 
-                        if e.type == pygame.MOUSEBUTTONDOWN:
+                        if event.type == pygame.MOUSEBUTTONDOWN:
 
                             color = ([0,0,0])
 
-                            pygame.draw.circle(screen, color, e.pos, radius)
+                            pygame.draw.circle(screen, color, event.pos, radius)
                             draw_on = True
 
-                        if e.type == pygame.MOUSEBUTTONUP:
+                        if event.type == pygame.MOUSEBUTTONUP:
                             draw_on = False
-                        if e.type == pygame.MOUSEMOTION:
+                        if event.type == pygame.MOUSEMOTION:
                             if draw_on:
-                                pygame.draw.circle(screen, color, e.pos, radius)
-                                roundline(screen, color, e.pos, last_pos, radius)
-                            last_pos = e.pos
+                                pygame.draw.circle(screen, color, event.pos, radius)
+                                roundline(screen, color, event.pos, last_pos, radius)
+                            last_pos = event.pos
                         pygame.display.flip()
 
                 except StopIteration:
