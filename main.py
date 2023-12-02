@@ -71,7 +71,7 @@ def paint() -> None:  # Keep this the last function above main
                 # todo: refactor the below code to follow existing conventions
                 # make sure that it saves each location to the set pixel_locations and then
                 # draws them at the location dictated by the todo
-                def roundline(canvas, color, start, end, radius=1):
+                def line(canvas, color, start, end, radius=1):
                     Xaxis = end[0] - start[0]
                     Yaxis = end[1] - start[1]
                     dist = max(abs(Xaxis), abs(Yaxis))
@@ -99,7 +99,7 @@ def paint() -> None:  # Keep this the last function above main
                         if event.type == pygame.MOUSEMOTION:
                             if draw_on:
                                 pygame.draw.circle(screen, color, event.pos, radius)
-                                roundline(screen, color, event.pos, last_pos, radius)
+                                line(screen, color, event.pos, last_pos, radius)
                             last_pos = event.pos
                         pygame.display.flip()
 
