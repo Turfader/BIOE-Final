@@ -20,6 +20,7 @@ This application was designed for Python 3.11+
 
 <!-- KEYBINDS -->
 ### Keybinds
+Misc: <br>
 C -- Clear screen <br>
 L_Shift + S -- Screenshot <br> <br>
 Colors: <br>
@@ -28,7 +29,7 @@ R -- Red <br>
 G -- Green <br>
 U -- Blue <br>
 W -- White <br> <br>
-Sizes <br>
+Sizes: <br>
 0 -- One single pixel (Default) <br>
 1 -- Circle with radius 1 <br>
 2 -- Circle with radius 2 <br>
