@@ -93,53 +93,19 @@ def paint() -> None:  # Keep this the last function above main
 
             if mouse_down:
                 x, y = pygame.mouse.get_pos()
+                pixel_locations.add((x, y, color, radius))
                 # TODO add code to add to pixel locations as shown in discord
 
 
                 # TODO remove this code as shown in discord (until line 142)
-                def line(canvas, color, start, end, radius=1):
-                    Xaxis = end[0] - start[0]
-                    Yaxis = end[1] - start[1]
-                    dist = max(abs(Xaxis), abs(Yaxis))
-                    for i in range(dist):
-                        x = int(start[0] + float(i) / dist * Xaxis)
-                        y = int(start[1] + float(i) / dist * Yaxis)
-                        pygame.draw.circle(canvas, color, (x, y), radius)
-
-                try:
-                    while True:
-                        event = pygame.event.wait()
-
-                        if event.type == pygame.QUIT:
-                            raise StopIteration
-
-                        if event.type == pygame.MOUSEBUTTONDOWN:
-
-                            color = ([0,0,0])
-
-                            pygame.draw.circle(screen, color, event.pos, radius)
-                            draw_on = True
-
-                        if event.type == pygame.MOUSEBUTTONUP:
-                            draw_on = False
-                        if event.type == pygame.MOUSEMOTION:
-                            if draw_on:
-                                pygame.draw.circle(screen, color, event.pos, radius)
-                                line(screen, color, event.pos, last_pos, radius)
-                            last_pos = event.pos
-                        pygame.display.flip()
-
-                except StopIteration:
-                    pass
 
             # TODO add code as shown in the discord
             for location in pixel_locations:
                 if location[3] == 0:
-                    # add gfxdraw code here. Remover the pass
-                    pass
+                    put_pixel(location[2], location[0], location[1], screen)
+
                 else:
-                    # add pygame.draw.circle code here. Remove the pass
-                    pass
+                    pygame.draw.circle(screen, location[2], (location[0], location[1]), location[3])
             pygame.display.flip()
             clock.tick(30)  # limits frames to 30 fps
     pygame.quit()
