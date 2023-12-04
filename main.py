@@ -3,6 +3,13 @@ import pygame
 from pygame import gfxdraw
 
 
+def put_text(txt: str, x: int, y: int, color: tuple[int, int, int], screen) -> None:
+
+    font = pygame.font.SysFont('Calibri', 25, True, False)
+    text = font.render(txt, True, [0, 0, 0])
+    screen.blit(text, [x, y])  # shows an error. This should not be an error at runtime
+
+
 def put_pixel(color, x, y, screen) -> None:
     gfxdraw.pixel(screen, x, y, color)
 
