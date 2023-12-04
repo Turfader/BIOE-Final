@@ -94,12 +94,7 @@ def paint() -> None:  # Keep this the last function above main
             if mouse_down:
                 x, y = pygame.mouse.get_pos()
                 pixel_locations.add((x, y, color, radius))
-                # TODO add code to add to pixel locations as shown in discord
 
-
-                # TODO remove this code as shown in discord (until line 142)
-
-            # TODO add code as shown in the discord
             for location in pixel_locations:
                 if location[3] == 0:
                     put_pixel(location[2], location[0], location[1], screen)
