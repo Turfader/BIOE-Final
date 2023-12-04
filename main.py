@@ -102,7 +102,7 @@ def paint() -> None:  # Keep this the last function above main
                 else:
                     pygame.draw.circle(screen, location[2], (location[0], location[1]), location[3])
             pygame.display.flip()
-            clock.tick(30)  # limits frames to 30 fps
+            clock.tick()
     pygame.quit()
 
 
