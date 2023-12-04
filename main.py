@@ -3,12 +3,12 @@ import pygame
 from pygame import gfxdraw
 
 
-def put_text(txt: str, x: int, y: int, color: tuple[int, int, int], screen) -> None:
+def put_text(txt: str, x: int, y: int, screen) -> None:
 
     font = pygame.font.SysFont('Calibri', 25, True, False)
     text = font.render(txt, True, [0, 0, 0])
-    screen.blit(text, [x, y])  # shows an error. This should not be an error at runtime
-
+    screen.blit(text, [x, y])  
+    
 
 def put_pixel(color, x, y, screen) -> None:
     gfxdraw.pixel(screen, x, y, color)
@@ -21,6 +21,7 @@ def paint() -> None:  # Keep this the last function above main
     mouse_down: bool = False
     radius: int = 0  # set default to one pixel
     color: tuple[int, int, int] = (0, 0, 0)  # set default to black
+    place_text: bool = False
 
     # pygame init stuff here
     pygame.init()
@@ -48,6 +49,10 @@ def paint() -> None:  # Keep this the last function above main
                 # screenshot
                 if event.key == pygame.K_s and pygame.K_LSHIFT:
                     pygame.image.save(screen, "./screenshot.png")
+
+                # textbox
+                if event.key == pygame.K_t:
+                    place_text = True
 
                 # color
                 if event.key == pygame.K_r:
@@ -100,7 +105,11 @@ def paint() -> None:  # Keep this the last function above main
 
             if mouse_down:
                 x, y = pygame.mouse.get_pos()
-                pixel_locations.add((x, y, color, radius))
+                if place_text:
+                    place_text = False
+                    put_text(input("Input your text here:\n"), x, y, color, screen)
+                else:
+                    pixel_locations.add((x, y, color, radius))
 
             for location in pixel_locations:
                 if location[3] == 0:
