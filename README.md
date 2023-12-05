@@ -28,7 +28,16 @@ B -- Black (Default) <br>
 R -- Red <br>
 G -- Green <br>
 U -- Blue <br>
-W -- White <br> <br>
+W -- White 
+A -- Gray <br>
+L -- Gold <br>
+P -- Purple/Plum <br>
+V -- Violet <br>
+I -- Indigo <br>
+O -- Oragne <br>
+Y -- Yellow <br>
+N -- Pink <br>
+M -- Brown <br> <br>
 Sizes: <br>
 0 -- One single pixel (Default) <br>
 1 -- Circle with radius 1 <br>
@@ -39,4 +48,11 @@ Sizes: <br>
 6 -- Circle with radius 6 <br>
 7 -- Circle with radius 7 <br>
 8 -- Circle with radius 8 <br>
-9 -- Circle with radius 9 <br>
+9 -- Circle with radius 9 <br> <br>
+Text: <br>
+<ol>
+  <li>Press 'T' to enter text mode</li>
+  <li>Click on the location you want to place your text</li>
+  <li>In the code console -- either the open command promt or your IDE's console -- type your desired text and press enter</li>
+  <li>Enjoy your text!</li>
+</ol>
