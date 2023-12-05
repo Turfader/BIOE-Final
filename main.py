@@ -3,10 +3,10 @@ import pygame
 from pygame import gfxdraw
 
 
-def put_text(txt: str, x: int, y: int, screen) -> None:
+def put_text(txt: str, x: int, y: int, color: tuple[int, int, int], screen) -> None:
 
     font = pygame.font.SysFont('Calibri', 25, True, False)
-    text = font.render(txt, True, [0, 0, 0])
+    text = font.render(txt, True, color)
     screen.blit(text, [x, y])  
     
 
