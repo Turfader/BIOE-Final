@@ -49,7 +49,7 @@ Sizes: <br>
 7 -- Circle with radius 7 <br>
 8 -- Circle with radius 8 <br>
 9 -- Circle with radius 9 <br> <br>
-Text: <br>
+Text:
 <ol>
   <li>Press 'T' to enter text mode</li>
   <li>Click on the location you want to place your text</li>
