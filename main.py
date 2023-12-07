@@ -90,9 +90,9 @@ def paint() -> None:  # Keep this the last function above main
                 if event.key == pygame.K_x: 
                     color = (67, 232, 216)  # sets color to turquoise 
                 if event.key == pygame.K_f: 
-                    color = (217, 2, 125)  # sets color to fuschia 
+                    color = (217, 2, 125)  # sets color to fuchsia
                 if event.key == pygame.K_h: 
-                    color = (156,175,136)  # sets color to sage green 
+                    color = (156, 175, 136)  # sets color to sage green
                 if event.key == pygame.K_j: 
                     color = (185, 162, 129)  # sets color to taupe brown 
                 if event.key == pygame.K_z:
