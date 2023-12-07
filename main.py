@@ -100,10 +100,7 @@ def paint() -> None:  # Keep this the last function above main
                 if event.key == pygame.K_k: 
                     color = (198, 81, 2)  # sets color to burnt orange 
                 if event.key == pygame.K_d: 
-                    color = (0, 0, 128)  # sets color to navy blue 
-            
-            
-    
+                    color = (0, 0, 128)  # sets color to navy blue
 
                 # size
                 if event.key == pygame.K_1:
