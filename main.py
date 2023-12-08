@@ -1,17 +1,22 @@
 import package_installer
 import pygame
 from pygame import gfxdraw
-
+from tkinter import Tk, Button, colorchooser
 
 def put_text(txt: str, x: int, y: int, color: tuple[int, int, int], screen) -> None:
 
     font = pygame.font.SysFont('Calibri', 25, True, False)
     text = font.render(txt, True, color)
-    screen.blit(text, [x, y])  
-    
+    screen.blit(text, [x, y])
 
 def put_pixel(color, x, y, screen) -> None:
     gfxdraw.pixel(screen, x, y, color)
+
+
+def colorPicker():
+    global colorfromgui
+    mcs = colorchooser.askcolor()
+    colorfromgui = mcs[0]
 
 
 def paint() -> None:  # Keep this the last function above main
@@ -25,6 +30,8 @@ def paint() -> None:  # Keep this the last function above main
 
     # pygame init stuff here
     pygame.init()
+    width = 400
+    hight = 400
     size = (400, 400)
     screen = pygame.display.set_mode(size)
     pygame.display.set_caption("PyPaint")
@@ -46,6 +53,11 @@ def paint() -> None:  # Keep this the last function above main
                     screen.fill([255, 255, 255])  # when c is pressed, fill the screen with white
                     pixel_locations = set()  # clear existing pixel locations
 
+                # Launch color picker GUI
+                if event.key == pygame.K_a:
+                    colorPicker()
+                    color = colorfromgui
+
                 # screenshot
                 if event.key == pygame.K_s and pygame.K_LSHIFT:
                     pygame.image.save(screen, "./screenshot.png")
@@ -65,8 +77,8 @@ def paint() -> None:  # Keep this the last function above main
                     color = (0, 0, 0)  # sets color to black
                 if event.key == pygame.K_w:
                     color = (255, 255, 255)  # sets color to white
-                if event.key == pygame.K_a: 
-                    color = (192, 192, 192)  # sets color to gray 
+                #if event.key == pygame.K_a:
+                #    color = (192, 192, 192)  # sets color to gray
                 if event.key == pygame.K_l: 
                     color = (229, 184, 11)   # sets color to gold
                 if event.key == pygame.K_p: 
