@@ -10,8 +10,23 @@ This project is a simple recreation of ms paint in PyGame
 
 <!-- GETTING STARTED -->
 ### Getting Started
-
-Run main.py and draw to your heart's content
+<ul>
+  <li>Download the project via zip or git clone and unzip if necessary</li>
+  <li>For IDE:
+  <ol type="i">
+    <li>Open the project through your IDE's "open" directory</li>
+    <li>Press "Run"</li>
+    <li>Type your inputs in the imbedded console when writing text</li>
+  </ol>
+  </li>
+  <li>For command prompt/terminal:
+  <ol type="i">
+    <li>Type "cd PATH_TO_FOLDER_HERE", replacing the capital text with the appropriate file directory to the folder containing the python files, and press enter</li>
+    <li>Type "python main.py" and press enter</li>
+    <li>Type your inputs in the console when writing text</li>
+  </ol>
+  </li>
+</ul>
 
 <!-- PREREQUISITES -->
 ### Prerequisites
@@ -37,7 +52,16 @@ I -- Indigo <br>
 O -- Oragne <br>
 Y -- Yellow <br>
 N -- Pink <br>
-M -- Brown <br> <br>
+M -- Brown <br>
+E -- Emerald Green <br>
+Q -- Light Brown <br>
+X -- Turquoise <br>
+F -- Fuchsia <br>
+H -- Sage Green <br>
+J -- Taupe Brown <br>
+Z -- Burgundy <br>
+K -- Burnt Orange <br>
+D -- Navy Blue <br> <br>
 Sizes: <br>
 0 -- One single pixel (Default) <br>
 1 -- Circle with radius 1 <br>
@@ -53,6 +77,6 @@ Text:
 <ol>
   <li>Press 'T' to enter text mode</li>
   <li>Click on the location you want to place your text</li>
-  <li>In the code console -- either the open command promt or your IDE's console -- type your desired text and press enter</li>
+  <li>View the above instructions for text</li>
   <li>Enjoy your text!</li>
 </ol>
