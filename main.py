@@ -15,10 +15,10 @@ def put_pixel(color, x, y, screen) -> None:
     gfxdraw.pixel(screen, x, y, color)
 
 
-def colorpicker():
-    global colorfromgui
+def color_picker() -> tuple[int, int, int]:
     mcs = colorchooser.askcolor()
-    colorfromgui = mcs[0]
+    print(mcs)
+    return mcs[0]
 
 
 def paint() -> None:  # Keep this the last function above main
@@ -54,9 +54,8 @@ def paint() -> None:  # Keep this the last function above main
                     pixel_locations = set()  # clear existing pixel locations
 
                 # Launch color picker GUI
-                if event.key == pygame.K_a:
-                    colorpicker()
-                    color = colorfromgui
+                if event.key == pygame.K_z:
+                    color = color_picker()
 
                 # screenshot
                 if event.key == pygame.K_s and pygame.K_LSHIFT:
@@ -65,6 +64,7 @@ def paint() -> None:  # Keep this the last function above main
                 # textbox
                 if event.key == pygame.K_t:
                     place_text = True
+
 
                 # color
                 if event.key == pygame.K_r:
@@ -106,9 +106,7 @@ def paint() -> None:  # Keep this the last function above main
                 if event.key == pygame.K_h: 
                     color = (156, 175, 136)  # sets color to sage green
                 if event.key == pygame.K_j: 
-                    color = (185, 162, 129)  # sets color to taupe brown 
-                if event.key == pygame.K_z:
-                    color = (144, 0, 32)  # sets color to burgundy 
+                    color = (185, 162, 129)  # sets color to taupe brown
                 if event.key == pygame.K_k: 
                     color = (198, 81, 2)  # sets color to burnt orange 
                 if event.key == pygame.K_d: 
