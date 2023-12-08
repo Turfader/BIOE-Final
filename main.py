@@ -17,7 +17,6 @@ def put_pixel(color, x, y, screen) -> None:
 
 def color_picker() -> tuple[int, int, int]:
     mcs = colorchooser.askcolor()
-    print(mcs)
     return mcs[0]
 
 
