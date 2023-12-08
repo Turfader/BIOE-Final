@@ -1,9 +1,15 @@
 
-print("fetching datetime")
+from package_installer import install
+try:
+    import ntplib
+except ModuleNotFoundError:
+    install()
+finally:
+    import nntplib
 
-import package_installer
-import ntplib
 from datetime import datetime
+
+print("fetching datetime")
 
 ntp_client = ntplib.NTPClient()
 ntp_server = 'time.windows.com'

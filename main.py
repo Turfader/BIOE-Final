@@ -1,7 +1,14 @@
-import package_installer
-import pygame
-from pygame import gfxdraw
-from tkinter import colorchooser
+
+from package_installer import install
+try:
+    import pygame
+    from pygame import gfxdraw
+except ModuleNotFoundError:
+    install()
+finally:
+    import pygame
+    from pygame import gfxdraw
+    from tkinter import colorchooser
 
 
 def put_text(txt: str, x: int, y: int, color: tuple[int, int, int], screen) -> None:
@@ -15,8 +22,11 @@ def put_pixel(color, x, y, screen) -> None:
     gfxdraw.pixel(screen, x, y, color)
 
 
-def color_picker() -> tuple[int, int, int]:
+def color_picker() -> tuple[int, int, int] | None:  # Despite what the type hinting says...
+    # ...this function will never return none
     mcs = colorchooser.askcolor()
+    if mcs[0] is None:
+        return 0, 0, 0  # defaults back to black if no color is picked
     return mcs[0]
 
 
@@ -64,7 +74,6 @@ def paint() -> None:  # Keep this the last function above main
                 if event.key == pygame.K_t:
                     place_text = True
 
-
                 # color
                 if event.key == pygame.K_r:
                     color = (255, 0, 0)  # sets color to red
@@ -76,8 +85,8 @@ def paint() -> None:  # Keep this the last function above main
                     color = (0, 0, 0)  # sets color to black
                 if event.key == pygame.K_w:
                     color = (255, 255, 255)  # sets color to white
-                #if event.key == pygame.K_a:
-                #    color = (192, 192, 192)  # sets color to gray
+                if event.key == pygame.K_a:
+                    color = (192, 192, 192)  # sets color to gray
                 if event.key == pygame.K_l: 
                     color = (229, 184, 11)   # sets color to gold
                 if event.key == pygame.K_p: 
