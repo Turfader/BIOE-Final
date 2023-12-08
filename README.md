@@ -39,6 +39,7 @@ Misc: <br>
 C -- Clear screen <br>
 L_Shift + S -- Screenshot <br> <br>
 Colors: <br>
+Press Z to open the color selection screen or use any of the keybinds below <br>
 B -- Black (Default) <br>
 R -- Red <br>
 G -- Green <br>
@@ -59,7 +60,6 @@ X -- Turquoise <br>
 F -- Fuchsia <br>
 H -- Sage Green <br>
 J -- Taupe Brown <br>
-Z -- Burgundy <br>
 K -- Burnt Orange <br>
 D -- Navy Blue <br> <br>
 Sizes: <br>
