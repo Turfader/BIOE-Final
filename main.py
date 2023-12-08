@@ -1,7 +1,8 @@
 import package_installer
 import pygame
 from pygame import gfxdraw
-from tkinter import Tk, Button, colorchooser
+from tkinter import colorchooser
+
 
 def put_text(txt: str, x: int, y: int, color: tuple[int, int, int], screen) -> None:
 
@@ -9,11 +10,12 @@ def put_text(txt: str, x: int, y: int, color: tuple[int, int, int], screen) -> N
     text = font.render(txt, True, color)
     screen.blit(text, [x, y])
 
+
 def put_pixel(color, x, y, screen) -> None:
     gfxdraw.pixel(screen, x, y, color)
 
 
-def colorPicker():
+def colorpicker():
     global colorfromgui
     mcs = colorchooser.askcolor()
     colorfromgui = mcs[0]
@@ -30,8 +32,6 @@ def paint() -> None:  # Keep this the last function above main
 
     # pygame init stuff here
     pygame.init()
-    width = 400
-    hight = 400
     size = (400, 400)
     screen = pygame.display.set_mode(size)
     pygame.display.set_caption("PyPaint")
@@ -55,7 +55,7 @@ def paint() -> None:  # Keep this the last function above main
 
                 # Launch color picker GUI
                 if event.key == pygame.K_a:
-                    colorPicker()
+                    colorpicker()
                     color = colorfromgui
 
                 # screenshot
